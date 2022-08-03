@@ -10,3 +10,12 @@ In this segment, a command line interprater is created to manage objects for the
 * Update an object and it's attributes
 * Perform operations on objects(...count objects, etc)
 * Destroy an object
+
+## Authors
+
+* Ian Kamande
+* CHEBET CANDY
+
+## Lisence
+
+No copy write protection

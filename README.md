@@ -11,6 +11,11 @@ In this segment, a command line interprater is created to manage objects for the
 * Perform operations on objects(...count objects, etc)
 * Destroy an object
 
+## Unit tests
+|Classes|Unit tests|
+|-------|----------|
+|`BaseModel`|[test_base_model](./tests/test_models/test_base_model.py)|
+
 ## Authors
 
 * Ian Kamande
@@ -19,3 +24,4 @@ In this segment, a command line interprater is created to manage objects for the
 ## Lisence
 
 No copy write protection
+

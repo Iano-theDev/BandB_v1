@@ -4,6 +4,9 @@ Contains FileStorage class
 """
 
 
+import json
+from models.base_model import BaseModel
+
 class FileStorage:
     """serializes objects to JSON strings
     deserializes JSON strings back to objects"""
@@ -20,8 +23,13 @@ class FileStorage:
     def new(self, obj):
         """sets in __objects the obj with key <obj class>.id"""
         if obj is not None:
-            key = obj.__class__.__name__ + "." obj.id
+            key = obj.__class__.__name__ + "." + obj.id
             self.__objects[key] = obj
+
+    # def save(self):
+    #     """Serializes __objects to the JSON file __file_path."""
+    #     with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
+    #         json.dump([o.to_dict() for o in self.all().values()], f)
 
     def save(self):
         """serializes __objects to the JSON file (path:__file_path)"""
@@ -29,7 +37,8 @@ class FileStorage:
         for key in self.__objects:
             object_to_json[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as f:
-            json.dump(object_to_json, f)
+            print(FileStorage.__file_path)
+            json.dump(list(object_to_json.items()), f)
 
     def reload(self):
         """deserialize the JSON file to __objects

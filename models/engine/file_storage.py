@@ -7,6 +7,8 @@ Contains FileStorage class
 import json
 from models.base_model import BaseModel
 
+classes = {"BaseModel": BaseModel}
+
 
 class FileStorage:
     """serializes objects to JSON strings
@@ -33,11 +35,11 @@ class FileStorage:
         for key in self.__objects:
             object_to_json[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as f:
-            json.dump(list(object_to_json.items()), f)
+            json.dump(object_to_json, f)
 
     def reload(self):
         """deserialize the JSON file to __objects
-        only if file (__file_path)exists"""
+        only if file (__file_path) exists"""
         try:
             with open(self.__file_path, 'r') as f:
                 jo = json.load(f)

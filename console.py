@@ -21,5 +21,6 @@ class HBNBCommand(cmd.Cmd):
         """overite/skip the emptyline method"""
         return False
 
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()

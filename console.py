@@ -6,6 +6,7 @@ import cmd
 import models
 import shlex  # used for spliting
 from models.base_model import BaseModel
+from models.user import User
 
 classes = {"BaseModel": BaseModel, "User": User}
 

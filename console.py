@@ -3,6 +3,7 @@
 
 
 import cmd
+import models
 import shlex #used for spliting
 from models.base_model import BaseModel
 
@@ -29,7 +30,7 @@ class HBNBCommand(cmd.Cmd):
         saves instance to a JSON file and prints the id"""
         args = shlex.split(arg)
         if len(args) == 0:
-            print(" **class name missing **")
+            print("**class name missing **")
             return False
         if args[0] in classes:
             instance = classes[args[0]]()
@@ -38,6 +39,26 @@ class HBNBCommand(cmd.Cmd):
             return False
         print(instance.id)
         instance.save()
+    
+    def do_show(self, arg):
+        """Prints the string representation of an instance
+        based on the class name and id. """
+        args = shlex.split(arg)
+        if len(arg) == 0:
+            print("** class name missing **")
+            return False
+        if args[0] in classes:
+            if len(args) > 1:
+                key = args[0] + "." + args[1]
+                if key in models.storage.all():
+                    print(models.storage.all()[key])
+                else:
+                    print("** no instance found **")
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")
+        
     
         
         

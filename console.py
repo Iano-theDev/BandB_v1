@@ -78,7 +78,27 @@ class HBNBCommand(cmd.Cmd):
                 print("** instace id missing **")
         else:
             print("** class name missing **")
+    def do_all(self, arg):
+        """Prints a list of strings (string representation) of all instances 
+        based on either the class name or not """
+        args = shlex.split(arg)
+        instance_list = []
+        if len(args) == 0:
+            for value in models.storage.all().values():
+                instance_list.append(str(value))
+            print("[", end="")
+            print(", ".join(instance_list), end="")
+            print("]")
+        elif args[0] in classes:
+            for key in models.storage.all():
+                if args[0] in key:
+                    instance_list.append(str(models.storage.all()[key]))
+            print("[", end="")
+            print(", ".join(instance_list), end="")
+            print("]")
+        else:
+            print("** class doesn't exist **")
         
-        
+                
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

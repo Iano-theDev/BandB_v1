@@ -7,8 +7,13 @@ Contains FileStorage class
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
-classes = {"BaseModel": BaseModel, "User": User}
+classes = {"BaseModel": BaseModel, "User": User, "Amenity": Amenity,
+           "State": State, "Place": Place, "Review": Review}
 
 
 class FileStorage:

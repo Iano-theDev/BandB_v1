@@ -4,10 +4,11 @@
 
 import cmd
 import models
-import shlex #used for spliting
+import shlex  # used for spliting
 from models.base_model import BaseModel
 
 classes = {"BaseModel": BaseModel}
+
 
 class HBNBCommand(cmd.Cmd):
     """An entry point for the airbnb clone HBNB CLI"""
@@ -24,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """overite/skip the emptyline method"""
         return False
-    
+
     def do_create(self, arg):
         """creates a new instance of BaseModel
         saves instance to a JSON file and prints the id
@@ -41,10 +42,10 @@ class HBNBCommand(cmd.Cmd):
             return False
         print(instance.id)
         instance.save()
-    
+
     def do_show(self, arg):
         """Prints the string representation of an instance
-        based on the class name and id. 
+        based on the class name and id.
         Ex: $ show BaseModel 1234-1234-1234.
         """
         args = shlex.split(arg)
@@ -62,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
-        
+
     def do_destroy(self, arg):
         """Delets an instance base on the class name and id
         saves changes in a JSON file.
@@ -76,7 +77,6 @@ class HBNBCommand(cmd.Cmd):
                 key = args[0] + "." + args[1]
                 if key in models.storage.all():
                     models.storage.all().pop(key)
-                    print("destroyed {}".format(key))
                     models.storage.save()
                 else:
                     print("** no instance found **")
@@ -84,9 +84,11 @@ class HBNBCommand(cmd.Cmd):
                 print("** instace id missing **")
         else:
             print("** class name missing **")
+
     def do_all(self, arg):
-        """Prints a list of strings (string representation) of all instances 
-        based on either the class name or not 
+        """
+        Prints a list of strings (string representation) of all instances
+        based on either the class name or not
         Ex: $ all BaseModel or $ all.
         """
         args = shlex.split(arg)
@@ -106,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
             print("]")
         else:
             print("** class doesn't exist **")
-            
+
     def do_update(self, arg):
         """
         updates an instance based on the class name and id
@@ -134,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
-       
-                
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

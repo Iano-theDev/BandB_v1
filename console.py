@@ -7,7 +7,7 @@ import models
 import shlex  # used for spliting
 from models.base_model import BaseModel
 
-classes = {"BaseModel": BaseModel}
+classes = {"BaseModel": BaseModel, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -65,7 +65,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
-        """Delets an instance base on the class name and id
+        """
+        Delets an instance base on the class name and id
         saves changes in a JSON file.
         Ex: $ destroy BaseModel 1234-1234-1234
         """

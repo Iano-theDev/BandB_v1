@@ -5,7 +5,7 @@
     border: 1px solid #dddddd;
     border-radius: 4px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -17,6 +17,7 @@ section.filters button {
     border: 0px;
     border-radius: 4px;
     margin-right: 30px;
+    margin-left: auto;
     opacity: 1;
     color: #ffffff;
 }

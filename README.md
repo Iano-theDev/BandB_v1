@@ -16,6 +16,10 @@ In this segment, a command line interprater is created to manage objects for the
 |-------|----------|
 |`BaseModel`|[test_base_model](./tests/test_models/test_base_model.py)|
 
+## Web Static
+* A static web implementation of the front end of the airbnb_clone
+* Made using mainly plain HTML & CSS.
+
 ## Authors
 
 * Ian Kamande

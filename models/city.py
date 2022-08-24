@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """
-city.py
-city class
+Contains the City subclass
 """
 
 from models.base_model import BaseModel
-    
-class City(BaseModel):
-    """
-    It is a child class of BaseModel
-    Contains information about the cities' identity
-    """
 
+
+class City(BaseModel):
+    """Represents a city"""
     state_id = ""
     name = ""
+
+    def __init__(self, *args, **kwargs):
+        """initialize the city subclass"""
+        super().__init__(*args, **kwargs)

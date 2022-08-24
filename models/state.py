@@ -1,17 +1,16 @@
 #!/usr/bin/python3
 """
-state.py
-State class
+The state child-class
 """
 
 
 from models.base_model import BaseModel
 
+
 class State(BaseModel):
-    """
-    It's a child class of BaseModel
-    Defines the identity of the state
-    """
+    """Represents a state"""
     name = ""
 
-
+    def __init__(self, *args, **kwargs):
+        """initialize state subclass"""
+        super().__init__(*args, **kwargs)

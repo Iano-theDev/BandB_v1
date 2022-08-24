@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-
 """
-user.py
-user class
-
+the user childclass
 """
+
 
 from models.base_model import BaseModel
 
-class user(Basemodel):
-    """
-    This is a BaseModel child class
-    It contains information about the user's identity
-    """
+
+class User(BaseModel):
+    """Representation of a user"""
     email = ""
     password = ""
     first_name = ""
     last_name = ""
+
+    def __init__(self, *args, **kwargs):
+        """initializes the user"""
+        super().__init__(*args, **kwargs)

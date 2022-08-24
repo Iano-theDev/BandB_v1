@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-
 """
-amenity.py
-Amenity Class
-
+The Amenity child-class
 """
+
 
 from models.base_model import BaseModel
 
+
 class Amenity(BaseModel):
-    """
-    This is a child class of BaseModel
-    Defines all the amenities for AirBnb
-    """
+    """Represents an amenity"""
     name = ""
 
+    def __init__(self, *args, **kwargs):
+        """initialize Amenity subclass"""
+        super().__init__(*args, **kwargs)

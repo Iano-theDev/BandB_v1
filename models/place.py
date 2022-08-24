@@ -1,18 +1,14 @@
-#!/usr/bin/python3
+#!usr/bin/python3
+"""
+The Place sub-class
+"""
 
-"""
-place.py
-Place Class
-"""
 
 from models.base_model import BaseModel
 
-class Place(BaseModel):
-    """
-    It's a child class to BaseModel
-    It'll define the place for Airbnb
-    """
 
+class Place(BaseModel):
+    """Represents a place"""
     city_id = ""
     user_id = ""
     name = ""
@@ -23,4 +19,8 @@ class Place(BaseModel):
     price_by_night = 0
     latitude = 0.0
     longitude = 0.0
-    amenity_ids: []
+    amenity_ids = []
+ 
+    def __init__(self, *args, **kwargs):
+        """initialize Place sub-class"""
+        super().__init__(*args, **kwargs)
